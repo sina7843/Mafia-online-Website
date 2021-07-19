@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login</title>
+   <link rel="stylesheet" href="./stylesheets/Login.css">
+</head>
+
+<body>
+   <form method="post" action="/login" id="SignUp">
+      <legend>Register!:</legend>
+      <h3>Welcome to Mafia Online</h3>
+      <input type="text" name="Nickname" id="Nickname" placeholder="Nick Name">
+      <input type="email" name="email" id="email" placeholder="Email">
+      <input type="password" name="password" id="password" placeholder="Password">
+      <input type="tel" id="phone" name="phone" placeholder="Phone" pattern="+[0-9]{12}" required>
+      <small>Format: +981234567890</small>
+      <a href="#">Forgot Pass!</a>
+      <input type="submit" value="LOG IN">
+
+      <div>Have Account? <input type="button" value="SignIN" id="btnSignIn"></div>
+   </form>
+   <form method="post" action="/login" id="login">
+      <legend>Log In!:</legend>
+      <h3>Welcome to Mafia Online</h3>
+      <input type="email" name="email" id="email" placeholder="Email">
+      <input type="password" name="password" id="password" placeholder="Password">
+      <a href="#">Forgot Pass!</a>
+      <input type="submit" value="LOG IN">
+      <div>New player?<input type="button" value="Register" id="btnRegister"></div>
+   </form>
+
+   <script src="./javascripts/Login.js"></script>
+</body>
+
+</html>
