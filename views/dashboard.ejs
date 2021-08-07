@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://kit.fontawesome.com/3a67b0646e.js"></script>
+   <link rel="stylesheet" href="./stylesheets/Dashboard.css">
+   <link rel="stylesheet" href="./javascripts/tingle-master/src/tingle.css">
+
+   <script>
+      let AvatarUrl = "./Avatars/<%= user.avatar%>"
+   </script>
+</head>
+
+<body>
+   <div class="profile">
+      <img src="./Avatars/<%= user.avatar%>" alt="">
+      <div>
+         <button onclick="OpenModel()"><i class="fas fa-cog"></i></button>
+         <div>
+            <h1><%= user.Name%></h1>
+            <h3><%= user.XP%>/240 Next Rank</h3>
+         </div>
+      </div>
+      <a href="#">Create Room</a>
+   </div>
+
+   <div class="stats">
+      <h1>Game Played <span><%= user.GamePlayed%></span></h1>
+      <dl>
+         <span>
+            <dt>Game Won</dt>
+            <dd><span><%= user.GameWon%>
+                  <!--Data--></span>
+               <div class="progress">
+                  <div class="progress-value" id="pWon" style="width: <%= user.GameWon*100/user.GamePlayed %>%">
+                  </div>
+               </div>
+            </dd>
+         </span>
+         <span>
+            <dt>Game Lose</dt>
+            <dd><span><%= user.GameLose%>
+                  <!--Data--></span>
+               <div class="progress">
+                  <div class="progress-value" id="pLose" style="width: <%= user.GameLose*100/user.GamePlayed %>%">
+                  </div>
+               </div>
+            </dd>
+         </span><span>
+            <dt>Game as Mafia</dt>
+            <dd><span><%= user.GameAsMafia%>
+                  <!--Data--></span>
+               <div class="progress">
+                  <div class="progress-value" id="pAMafia" style="width: <%= user.GameAsMafia*100/user.GamePlayed %>%">
+                  </div>
+               </div>
+            </dd>
+         </span><span>
+            <dt>Game as Citizen</dt>
+            <dd><span><%= user.GameAsCitizen%>
+                  <!--Data--></span>
+               <div class="progress">
+                  <div class="progress-value" id="pACitizen"
+                     style="width: <%= user.GameAsCitizen*100/user.GamePlayed %>%">
+                  </div>
+               </div>
+            </dd>
+         </span><span>
+            <dt>Game as Independent</dt>
+            <dd><span><%= user.GameAsNeutral%></span>
+               <div class="progress">
+                  <div class="progress-value" id="pAIndependent"
+                     style="width: <%= user.GameAsNeutral*100/user.GamePlayed %>%">
+                  </div>
+               </div>
+            </dd>
+         </span>
+      </dl>
+   </div>
+   <div class="description">
+      <h1>Description</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut error saepe consequuntur, nemo ad officiis esse
+         delectus, officia quidem eveniet accusantium id voluptates nesciunt soluta reiciendis, nobis maiores?
+         Asperiores, nihil.</p>
+   </div>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="./javascripts/tingle-master/src/tingle.js"></script>
+   <script src="./javascripts/dashboard.js"></script>
+</body>
+
+</html>

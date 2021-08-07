@@ -9,13 +9,13 @@
 </head>
 
 <body>
-   <form method="post" action="/login" id="SignUp">
+   <form method="post" action="/SignUp" id="SignUp">
       <legend>Register!:</legend>
       <h3>Welcome to Mafia Online</h3>
-      <input type="text" name="Nickname" id="Nickname" placeholder="Nick Name">
-      <input type="email" name="email" id="email" placeholder="Email">
-      <input type="password" name="password" id="password" placeholder="Password">
-      <input type="tel" id="phone" name="phone" placeholder="Phone" pattern="+[0-9]{12}" required>
+      <input type="text" name="Name" id="name" placeholder="Nick Name">
+      <input type="email" name="Email" id="email" placeholder="Email">
+      <input type="password" name="Password" id="password" placeholder="Password">
+      <input type="tel" id="phone" name="Phone" placeholder="Phone" pattern="+[0-9]{12}" required>
       <small>Format: +981234567890</small>
       <a href="#">Forgot Pass!</a>
       <input type="submit" value="LOG IN">
@@ -25,8 +25,8 @@
    <form method="post" action="/login" id="login">
       <legend>Log In!:</legend>
       <h3>Welcome to Mafia Online</h3>
-      <input type="email" name="email" id="email" placeholder="Email">
-      <input type="password" name="password" id="password" placeholder="Password">
+      <input type="email" name="Email" id="email" placeholder="Email">
+      <input type="password" name="Password" id="password" placeholder="Password">
       <a href="#">Forgot Pass!</a>
       <input type="submit" value="LOG IN">
       <div>New player?<input type="button" value="Register" id="btnRegister"></div>

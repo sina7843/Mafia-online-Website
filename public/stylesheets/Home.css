@@ -54,7 +54,6 @@ p{
   right : 1%;
   top : 3%;
   width :20vmin;
-  -webkit-animation:  0.7fadein5s ease-in; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 0.75s ease-in; /* Firefox < 16 */
   -ms-animation: fadein 0.75s ease-in; /* Internet Explorer */
   -o-animation: fadein 0.75s ease-in; /* Opera < 12.1 */

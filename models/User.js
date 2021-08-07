@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
    Name: {
       type: String,
       required: [true, 'Please Enter Your Name'],
@@ -18,7 +18,6 @@ const userSchema = new mongoose.Schema({
    password: {
       type: String,
       required: [true, 'Please Provide a Password'],
-      select: false
    },
    GamePlayed: {
       type: Number,
@@ -47,11 +46,13 @@ const userSchema = new mongoose.Schema({
    XP: {
       type: Number,
       default: 0
-   }
+   },
+   avatar: {
+      type: String,
+      default: "Default.jpg"
+   },
 }, {
    timestamps: true
 })
 
-const User = mongoose.model('User', userSchema)
-
-module.exports = User;
+const users = module.exports = mongoose.model('users', UserSchema);

@@ -8,6 +8,7 @@ passport.use(
     new LocalStrategy({ usernameField: 'Email', passwordField: 'Password' },
         async (username, password, done) => {
             try {
+                console.log(username, password);
                 let user = await USER.find({ Email: username, password: md5(password) });
                 if (user.length === 1) {
                     return done(null, user[0]);

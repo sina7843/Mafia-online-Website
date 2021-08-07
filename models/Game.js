@@ -14,6 +14,12 @@ const gamechema = new mongoose.Schema({
       enum: ['Classic', 'Nigth'],
       default: 'Classic'
    },
+   Stat: {
+      type: String,
+      enum: ["Waiting", "Start", "Ended"],
+      default: 'Waiting'
+   },
+   God: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
    Cards: [{
       type: { type: mongoose.Schema.Types.ObjectId, ref: 'Card' },
    }],

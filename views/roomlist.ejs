@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/stylesheets/room.css">
+   <title>Document</title>
+   <script src="https://kit.fontawesome.com/681316c72d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   <!-- header -->
+   <header>
+      <a class="decoration-none logout" href="">Login</a>
+      <a class="decoration-none" href="">
+         <div class="profile"></div>
+      </a>
+      <a class="decoration-none" href="">
+         <!--logo here--></a>
+   </header>
+
+   <!-- main -->
+   <main>
+
+      <!-- search part -->
+      <div class="search-part">
+         <form>
+
+            <!-- select -->
+            <span class="dropdown-el">
+               <input type="radio" name="Type" value="Classic"><label for="sort-relevance">Classic</label>
+               <input type="radio" name="Type" value="Night"><label for="sort-best">Night</label>
+               <input type="radio" name="Type" value="Avalon"><label for="sort-best">Avalon</label>
+            </span>
+            <div class="search-items">
+               <label for="searchbar" class="l-s">
+                  <i class="fas fa-search"></i>
+               </label>
+               <input type="search" id="searchbar">
+            </div>
+            <!-- end of select -->
+            <button class="createbutton" id="createbutton">Create</button>
+         </form>
+      </div>
+      <!-- popup -->
+      <div class="popup-background hidden" id="popup-background">
+         <div class="popup">
+            <form action="">
+               <input type="text" id="room-name" placeholder="Room name">
+               <select id="type" class="typebox">
+                  <option hidden selected></option>
+                  <option value="type1">type1</option>
+                  <option value="type2">type2</option>
+                  <option value="type3">type3</option>
+               </select>
+               <input type="number" name="members" id="members" class="inputbox" placeholder="Members">
+               <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+               </label>
+               <input type="submit" value="Create" class="createpopup">
+            </form>
+            <button class="closepopup" id="closepopup"><i class="fas fa-times"></i></button>
+         </div>
+      </div>
+      <!-- table -->
+      <table>
+         <tr>
+            <th>#</th>
+            <th>Room Name</th>
+            <th>Game Type</th>
+            <th>Members</th>
+            <th>Private</th>
+            <th>Join</th>
+         </tr>
+         <tr>
+            <td>1</td>
+            <td>room name</td>
+            <td>type</td>
+            <td>n / total</td>
+            <td><i class="fas fa-lock"></i></td>
+            <td><button class="joinbutton">Join</button></td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td>room name</td>
+            <td>type</td>
+            <td>n / total</td>
+            <td><i class="fas fa-unlock"></i></td>
+            <td><button class="joinbutton">Join</button></td>
+         </tr>
+         <tr>
+            <td>3</td>
+            <td>room name</td>
+            <td>type</td>
+            <td>n / total</td>
+            <td><i class="fas fa-lock"></i></td>
+            <td><button class="joinbutton">Join</button></td>
+         </tr>
+         <tr>
+            <td>4</td>
+            <td>room name</td>
+            <td>type</td>
+            <td>n / total</td>
+            <td><i class="fas fa-unlock"></i></td>
+            <td><button class="joinbutton">Join</button></td>
+         </tr>
+         <tr>
+            <td>5</td>
+            <td>room name</td>
+            <td>type</td>
+            <td>n / total</td>
+            <td><i class="fas fa-lock"></i></td>
+            <td><button class="joinbutton">Join</button></td>
+         </tr>
+         <tr>
+            <td>6</td>
+            <td>room name</td>
+            <td>type</td>
+            <td>n / total</td>
+            <td><i class="fas fa-unlock"></i></td>
+            <td><button class="joinbutton">Join</button></td>
+         </tr>
+      </table>
+
+      <!-- Change page buttons -->
+      <div class="change-page">
+         <a href="#" class="decoration-none" id="previous"> <i class="fas fa-chevron-up left"></i> </a>
+         <div id="room-number">1</div>
+         <a href="#" class="decoration-none" id="next"><i class="fas fa-chevron-up right"></i></a>
+      </div>
+   </main>
+   <!-- footer -->
+   <footer>ALl rights are registerd to Brainy Coders</footer>
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+   <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
