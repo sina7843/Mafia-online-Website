@@ -24,9 +24,8 @@ const gamechema = new mongoose.Schema({
       type: { type: mongoose.Schema.Types.ObjectId, ref: 'Card' },
    }],
    Private: {
-      type: Number,
-      enum: [1, 0],
-      default: 0
+      type: String,
+      enum: ["Private", "General"],
    },
    password: {
       type: String,
