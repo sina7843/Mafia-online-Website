@@ -4,7 +4,7 @@
    box-sizing: border-box;
  }
  
- html,body,#WaitingRoom{
+ html,body,#WaitingRoom,Room{
    width : 100%;
    height : 100%;
    overflow: hidden;
@@ -30,6 +30,8 @@
  }
  #WaitingRoom .members>ul{
     list-style-type:none;
+    width:100%;
+    justify-content:flex-start;
     overflow-y:auto;
     margin-bottom : 20px;
     height : 85%;
@@ -38,16 +40,16 @@
     color : white;
     display: flex;
    align-items:center;
-   font-size:1.3vw;
+   font-size:1vw;
    justify-content:flex-start;
    transition : 0.8s;
  }
  #WaitingRoom .members img{
-    width:19%;
+    width:3vw;
+    height : 3vw;
     border-radius : 50%;
     margin : 3.5%;
     margin-left : 0;
-      border : 1px solid #BC0410
  }
  #WaitingRoom .members>button{
     width : 90%;
@@ -60,3 +62,164 @@
     -webkit-box-shadow: 0px 0px 9px 2px #BC0410; 
    box-shadow: 0px 0px 3px 20% #BC0410;
  }
+#WaitingRoom .chat{
+  width: 70%;
+  height : 70%;
+  margin-top:13%;
+  display : flex;
+  flex-direction : column;
+  justify-content:space-between;
+  align-items:center;
+}
+#WaitingRoom .chat img{
+  width:3.5vw;
+  border-radius : 50%;
+  margin : 3.5%;
+}
+
+#WaitingRoom .chat>ul{
+  display :flex;
+  flex-direction : column;
+  justify-content : flex-end;
+  list-style-type:none;
+  overflow-y:auto;
+  margin-bottom : 20px;
+  width:100%;
+  height : 85%;
+}
+#WaitingRoom .chat li{
+ width: 40%;
+ color : white;
+ display: flex;
+ justify-content:flex-start;
+ transition : 0.8s;
+}
+#WaitingRoom .chat li>div{
+  padding: 3% 1%;
+}
+
+#WaitingRoom .chat h1{
+  font-size : 1.8vw;
+  padding-bottom : 2%;
+  color : #BC0410
+}
+#WaitingRoom .chat p{
+  font-size : 1.2vw;
+}
+#WaitingRoom .Self{
+  align-items : flex-start;
+  align-self : flex-end;
+  flex-direction : row-reverse;
+}
+#WaitingRoom .Other{
+  align-self : flex-Start;
+  align-items : flex-start;
+}
+
+#WaitingRoom div{
+  width: 100%;
+  display : flex;
+
+}
+#WaitingRoom input{
+  width : 100%;  
+  background-color: #22232A ;
+  border-radius : 0 0 0 1.2vw;
+  border : 0;
+  padding-left : 10px;
+  color :white;
+}
+#WaitingRoom input:focus{
+  outline : 0;
+}
+#WaitingRoom button{
+  width : 3vw;
+  height : 3vw;
+  font-size : 1.2rem;
+  border : 0;
+  border-radius : 100%;
+  background-color : #BC0410;
+  display : inline-block;
+  margin-left: -2vw;
+  cursor : pointer;
+}
+.inner i {
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background-color: #0F1018;
+  
+}
+.inner .right {
+  margin-left: -4%;
+}
+
+
+@media screen and (max-width: 800px) {
+  #WaitingRoom .members{
+    width : 100%;
+    max-height : 500px;
+  }
+
+  #WaitingRoom .chat{
+    width : 100%;
+    max-height : 500px;
+  }
+  #WaitingRoom .send{
+    width : 100%;
+    max-height : 500px;
+  } 
+  #WaitingRoom{
+    flex-direction : column-reverse;
+    align-items : center;
+  }
+  #WaitingRoom .members li{
+    font-size : 2vw;
+  }
+  #WaitingRoom .chat h1{
+    font-size : 2vw;
+  }
+  #WaitingRoom .chat p{
+    font-size : 1.5vw;
+  }
+  html,body,#WaitingRoom{
+    width : 100%;
+    min-height : 800px;
+    overflow: visible;
+  }
+  #WaitingRoom .members button{
+    width : 40%;
+    min-height : 50px;
+  } 
+}
+
+#room{
+  
+}
+
+
+
+
+.hidden{
+  display : none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #22232A; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #BC0410; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #85070f; 
+}

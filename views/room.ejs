@@ -6,64 +6,54 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <script src="https://kit.fontawesome.com/3a67b0646e.js"></script>
    <link rel="stylesheet" href="/stylesheets/room.css">
+   <script src="/socket.io/socket.io.js"></script>
+   <script>
+      let roomId = "<%= roomId %>"
+      let user = <%- JSON.stringify(user) %>;
+      let room = <%- JSON.stringify(game) %>;
+   </script>
 </head>
 
 <body>
-   <section id="WaitingRoom">
+   <section id="WaitingRoom" class="hidden">
       <div class="members">
-         <ul>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
-            <li><img src="/Avatars/Avatar-1627977904220.jpg" alt="">Nick Name</li>
+         <ul id="memberlist">
+
          </ul>
          <button>Enter Room</button>
       </div>
       <div class="chat">
-         <ul>
-            <li class="Self"><img src="/Avatars/Avatar-1627977904220.jpg">
-               <div>
-                  <h1>Nick Name</h1>
-                  <p>some text</p>
-               </div>
-            </li>
-            <li class="Other"><img src="/Avatars/Avatar-1627977904220.jpg">
-               <div>
-                  <h1>Nick Name</h1>
-                  <p>some text</p>
-               </div>
-            </li>
+         <ul id="chatBox">
          </ul>
-         <div>
-            <input type="text" name="" id="">
-            <button>Send</button>
+         <div class="send">
+            <div class="inner">
+               <input type="text" name="" id="msg" placeholder="message">
+               <i class="bottom right"></i>
+            </div>
+            <button id="Send"><i class="fas fa-paper-plane"></i></button>
          </div>
       </div>
    </section>
-   <section id="Room" style="display: none;">
+   <section id="Room">
+      <div>
+         <div>
+            <h1>God's Diary</h1>
+            <ul>
+               <li>lorem</li>   
+            </ul>
 
+         </div>
+         <div class="videoGrid">
+            
+         </div>
+      </div>
+      <footer>
+         
+      </footer>
    </section>
+   <script src="/javascripts/room.js"></script>
 </body>
 
 </html>
