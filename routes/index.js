@@ -18,11 +18,10 @@ router.post('/SignUp', async (req, res, next) => {
       Phone: req.body.Phone,
       password: md5(req.body.Password)
     });
-    console.log(await newuser.save());
+    await newuser.save();
     res.redirect('/Profile');
   }
   catch (err) {
-    console.log(err);
     res.redirect('/login');
   }
 })

@@ -10,7 +10,6 @@
    <script src="https://kit.fontawesome.com/681316c72d.js" crossorigin="anonymous"></script>
    <script>
       let Rooms = <%- JSON.stringify(rooms) %>;
-      console.log(Rooms);
    </script>
 </head>
 
@@ -56,7 +55,7 @@
                <input type="text" name="Name" id="room-name" placeholder="Room name" required>
                <select id="type" name="GameType" class="typebox" required>
                   <% for(var i=0; i < types.length; i++) { %>
-                  <option value=<%= types[i] %>"><%= types[i] %></option>
+                  <option value=<%= types[i] %>><%= types[i] %></option>
                   <% } %>
                </select>
                <input type="number" name="MaxMember" id="members" class="inputbox" placeholder="Members" min="8"

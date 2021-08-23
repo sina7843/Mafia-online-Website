@@ -1,207 +1,344 @@
-*{
-   padding :0;
-   margin : 0;
-   box-sizing: border-box;
- }
- 
- html,body,#WaitingRoom,Room{
-   width : 100%;
-   height : 100%;
-   overflow: hidden;
- }
- #WaitingRoom{
-   display :flex;
-   justify-content:space-between;
-   padding:0 15%;
-   align-items:flex-start;
-   font-family: 'Open Sans', sans-serif;
-   background : url(../images/WaitingRoomBackground.png);
-   background-size: 100% 100%;
- }
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
 
- #WaitingRoom .members{
-    width: 20%;
-    height : 70%;
-    margin-top:13%;
-    display : flex;
-    flex-direction : column;
-    justify-content:space-between;
-    align-items:center;
- }
- #WaitingRoom .members>ul{
-    list-style-type:none;
-    width:100%;
-    justify-content:flex-start;
-    overflow-y:auto;
-    margin-bottom : 20px;
-    height : 85%;
- }
- #WaitingRoom .members li{
-    color : white;
-    display: flex;
-   align-items:center;
-   font-size:1vw;
-   justify-content:flex-start;
-   transition : 0.8s;
- }
- #WaitingRoom .members img{
-    width:3vw;
-    height : 3vw;
-    border-radius : 50%;
-    margin : 3.5%;
-    margin-left : 0;
- }
- #WaitingRoom .members>button{
-    width : 90%;
-    height : 8%;
-    border-radius : 50px;
-    background-color : #BC0410;
-    border: 0;
-    color:#7C7C7C;
-    font-size:1.5vw;
-    -webkit-box-shadow: 0px 0px 9px 2px #BC0410; 
-   box-shadow: 0px 0px 3px 20% #BC0410;
- }
-#WaitingRoom .chat{
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Jura', sans-serif;
+}
+
+html,
+body,
+#WaitingRoom,
+#Room {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#WaitingRoom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15%;
+  align-items: flex-start;
+  background: url(../images/WaitingRoomBackground.png);
+  background-size: 100% 100%;
+}
+
+#WaitingRoom .members {
+  width: 20%;
+  height: 70%;
+  margin-top: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#WaitingRoom .members>ul {
+  list-style-type: none;
+  width: 100%;
+  justify-content: flex-start;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  height: 85%;
+}
+
+#WaitingRoom .members li {
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 1vw;
+  justify-content: flex-start;
+  transition: 0.8s;
+}
+
+#WaitingRoom .members img {
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  margin: 3.5%;
+  margin-left: 0;
+}
+
+#WaitingRoom .members>button {
+  width: 90%;
+  height: 8%;
+  border-radius: 50px;
+  background-color: #BC0410;
+  border: 0;
+  color: #7C7C7C;
+  font-size: 1.5vw;
+  -webkit-box-shadow: 0px 0px 9px 2px #BC0410;
+  box-shadow: 0px 0px 3px 20% #BC0410;
+}
+
+#WaitingRoom .chat {
   width: 70%;
-  height : 70%;
-  margin-top:13%;
-  display : flex;
-  flex-direction : column;
-  justify-content:space-between;
-  align-items:center;
-}
-#WaitingRoom .chat img{
-  width:3.5vw;
-  border-radius : 50%;
-  margin : 3.5%;
+  height: 70%;
+  margin-top: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#WaitingRoom .chat>ul{
-  display :flex;
-  flex-direction : column;
-  justify-content : flex-end;
-  list-style-type:none;
-  overflow-y:auto;
-  margin-bottom : 20px;
-  width:100%;
-  height : 85%;
+#WaitingRoom .chat img {
+  width: 3.5vw;
+  border-radius: 50%;
+  margin: 3.5%;
 }
-#WaitingRoom .chat li{
- width: 40%;
- color : white;
- display: flex;
- justify-content:flex-start;
- transition : 0.8s;
+
+#WaitingRoom .chat>ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  list-style-type: none;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 85%;
 }
-#WaitingRoom .chat li>div{
+
+#WaitingRoom .chat li {
+  width: 40%;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  transition: 0.8s;
+}
+
+#WaitingRoom .chat li>div {
   padding: 3% 1%;
 }
 
-#WaitingRoom .chat h1{
-  font-size : 1.8vw;
-  padding-bottom : 2%;
-  color : #BC0410
-}
-#WaitingRoom .chat p{
-  font-size : 1.2vw;
-}
-#WaitingRoom .Self{
-  align-items : flex-start;
-  align-self : flex-end;
-  flex-direction : row-reverse;
-}
-#WaitingRoom .Other{
-  align-self : flex-Start;
-  align-items : flex-start;
+#WaitingRoom .chat h1 {
+  font-size: 1.8vw;
+  padding-bottom: 2%;
+  color: #BC0410
 }
 
-#WaitingRoom div{
+#WaitingRoom .chat p {
+  font-size: 1.2vw;
+}
+
+#WaitingRoom .Self {
+  align-items: flex-start;
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+#WaitingRoom .Other {
+  align-self: flex-Start;
+  align-items: flex-start;
+}
+
+#WaitingRoom div {
   width: 100%;
-  display : flex;
+  display: flex;
 
 }
-#WaitingRoom input{
-  width : 100%;  
-  background-color: #22232A ;
-  border-radius : 0 0 0 1.2vw;
-  border : 0;
-  padding-left : 10px;
-  color :white;
+
+#WaitingRoom input {
+  width: 100%;
+  background-color: #22232A;
+  border-radius: 0 0 0 1.2vw;
+  border: 0;
+  padding-left: 10px;
+  color: white;
 }
-#WaitingRoom input:focus{
-  outline : 0;
+
+#WaitingRoom input:focus {
+  outline: 0;
 }
-#WaitingRoom button{
-  width : 3vw;
-  height : 3vw;
-  font-size : 1.2rem;
-  border : 0;
-  border-radius : 100%;
-  background-color : #BC0410;
-  display : inline-block;
+
+#WaitingRoom button {
+  width: 3vw;
+  height: 3vw;
+  font-size: 1.2rem;
+  border: 0;
+  border-radius: 100%;
+  background-color: #BC0410;
+  display: inline-block;
   margin-left: -2vw;
-  cursor : pointer;
+  cursor: pointer;
 }
+
 .inner i {
   width: 3vw;
   height: 3vw;
   border-radius: 50%;
   background-color: #0F1018;
-  
+
 }
+
 .inner .right {
   margin-left: -4%;
 }
 
 
 @media screen and (max-width: 800px) {
-  #WaitingRoom .members{
-    width : 100%;
-    max-height : 500px;
+  #WaitingRoom .members {
+    width: 100%;
+    max-height: 500px;
   }
 
-  #WaitingRoom .chat{
-    width : 100%;
-    max-height : 500px;
+  #WaitingRoom .chat {
+    width: 100%;
+    max-height: 500px;
   }
-  #WaitingRoom .send{
-    width : 100%;
-    max-height : 500px;
-  } 
-  #WaitingRoom{
-    flex-direction : column-reverse;
-    align-items : center;
+
+  #WaitingRoom .send {
+    width: 100%;
+    max-height: 500px;
   }
-  #WaitingRoom .members li{
-    font-size : 2vw;
+
+  #WaitingRoom {
+    flex-direction: column-reverse;
+    align-items: center;
   }
-  #WaitingRoom .chat h1{
-    font-size : 2vw;
+
+  #WaitingRoom .members li {
+    font-size: 2vw;
   }
-  #WaitingRoom .chat p{
-    font-size : 1.5vw;
+
+  #WaitingRoom .chat h1 {
+    font-size: 2vw;
   }
-  html,body,#WaitingRoom{
-    width : 100%;
-    min-height : 800px;
+
+  #WaitingRoom .chat p {
+    font-size: 1.5vw;
+  }
+
+  html,
+  body,
+  #WaitingRoom {
+    width: 100%;
+    min-height: 800px;
     overflow: visible;
   }
-  #WaitingRoom .members button{
-    width : 40%;
-    min-height : 50px;
-  } 
+
+  #WaitingRoom .members button {
+    width: 40%;
+    min-height: 50px;
+  }
 }
 
-#room{
-  
+#Room {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  background-color: black;
+  flex-direction: row;
+}
+
+#Room>.left {
+  display: flex;
+  width: 20%;
+  height: 90%;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  -webkit-box-shadow: 6vw 0px 6vw 2.5vw #000000;
+  box-shadow: 6vw 0px 6vw 2.5vw #000000;
+  z-index: 1;
+}
+
+#Room .left>h1 {
+  color: #BC0410;
+  width: 100%;
+  height: 10%;
+  font-size: 2vw;
+}
+
+#Room .left>ul {
+  display: flex;
+  width: 100%;
+  height: 65%;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+#Room .left li {
+  color: gray;
+  padding: 0.5vw;
+  font-size: 1.2vw;
+}
+
+#Room .control {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  flex-flow: row wrap;
+}
+
+#Room #CR {
+  width: 90%;
+  padding: 1em;
+  font-size: 1vw;
+  background-color: #00000000;
+  border: 2px solid #BC0410;
+  color: #BC0410;
+  border-radius: 2vw;
+  cursor: pointer;
+}
+
+#Room #CR:hover {
+  background-color: #BC0410;
+  color: black;
+}
+
+#like,
+#dislike {
+  width: 30%;
+  font-size: 2vw;
+  background-color: #00000000;
+  color: white;
+  border: 0;
+  cursor: pointer;
+}
+
+#like:hover,
+#dislike:hover {
+  color: #BC0410
+}
+
+#Room>.videoGrid {
+  display: flex;
+  width: 70%;
+  height: 90%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: white;
+  flex-flow: row wrap;
+}
+
+#Room .video {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 20%;
+  border: 1px solid black;
+}
+
+#Room .video>img {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
 }
 
 
 
-
-.hidden{
-  display : none;
+.hidden {
+  display: none !important;
 }
 
 /* width */
@@ -211,15 +348,15 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #22232A; 
+  background: #22232A;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #BC0410; 
+  background: #BC0410;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #85070f; 
+  background: #85070f;
 }

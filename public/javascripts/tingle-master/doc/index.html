@@ -88,26 +88,6 @@
 
         <h2 data-bullet="3" class="title">Use</h2>
         <pre class="javascript"><code>
-// instanciate new modal
-var modal = new tingle.modal({
-    footer: true,
-    stickyFooter: false,
-    closeMethods: ['overlay', 'button', 'escape'],
-    closeLabel: "Close",
-    cssClass: ['custom-class-1', 'custom-class-2'],
-    onOpen: function() {
-        console.log('modal open');
-    },
-    onClose: function() {
-        console.log('modal closed');
-    },
-    beforeClose: function() {
-        // here's goes some logic
-        // e.g. save content before closing the modal
-        return true; // close the modal
-        return false; // nothing happens
-    }
-});
 
 // set content
 modal.setContent('&lt;h1&gt;here\'s some content&lt;/h1&gt;');
@@ -192,7 +172,9 @@ modal.close();
             It means you can customize tingle to fit your needs. Tingle came with some useful styles for buttons:
         </p>
         <p>
-            <span class="important">Note:</span> The blur effect use <a href="https://developer.mozilla.org/fr/docs/Web/CSS/backdrop-filter">backdrop-filter</a> and will not work on some browsers.
+            <span class="important">Note:</span> The blur effect use <a
+                href="https://developer.mozilla.org/fr/docs/Web/CSS/backdrop-filter">backdrop-filter</a> and will not
+            work on some browsers.
         </p>
         <ul>
             <li>tingle-btn</li>

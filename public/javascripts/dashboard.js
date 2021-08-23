@@ -19,23 +19,6 @@ modal.setContent(`<form class="form" id="UpdateForm" action="./Profile/Update" m
 modal.addFooterBtn('Save', 'tingle-btn tingle-btn--primary', function () {
    let updateform = document.getElementById('UpdateForm');
    updateform.submit();
-   // var form = $('#UpdateForm');
-   // var url = form.attr('action');
-   // var fd = new FormData($('#img-avatar')[0].files[0]);
-   // console.log($('#img-avatar')[0].files[0]);
-   // //fd.append("CustomField", "This is some extra data");
-   // $.ajax({
-   //    url: url,
-   //    type: 'POST',
-   //    data: fd,
-   //    error: function (a, b, c) { alert(c); },
-   //    success: function (data) {
-   //       alert(data);
-   //    },
-   //    cache: false,
-   //    contentType: false,
-   //    processData: false
-   // });
    modal.close();
 });
 
@@ -51,7 +34,7 @@ modal.addFooterBtn('Cancel', 'tingle-btn tingle-btn--danger', function () {
 let ChangeAvatar = document.getElementById('img-avatar');
 let inputAvatar = document.getElementById('Avatar')
 ChangeAvatar.onclick = () => {
-   console.log(inputAvatar)
+   
    inputAvatar.click();
 }
 

@@ -33,9 +33,7 @@ let radios = document.getElementsByName('Type');
 
 let queryfunction = () => {
   let filterType;
-  console.log(radios);
   for (let i = 0, length = radios.length; i < length; i++) {
-    console.log(radios[i].checked);
     if (radios[i].checked) {
       filterType = (radios[i].value);
       break;
@@ -43,7 +41,6 @@ let queryfunction = () => {
   }
   let filteredRoom = [];
   let filterQuery = searchInput.value;
-  console.log(filterType)
   for (i in Rooms) {
     if ((filterType === "all" || filterType === Rooms[i].GameType) && Rooms[i].Name.indexOf(filterQuery) > -1) {
       filteredRoom.push(Rooms[i])

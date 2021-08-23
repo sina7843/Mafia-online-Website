@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var socketapi = require("./socketapi");
 
 const mongoose = require('mongoose');
 const db = require('./config/DataBase');
@@ -64,4 +65,5 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = { app, socketapi };
+

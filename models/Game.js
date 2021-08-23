@@ -20,9 +20,7 @@ const gamechema = new mongoose.Schema({
       default: 'Waiting'
    },
    God: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-   Cards: [{
-      type: { type: mongoose.Schema.Types.ObjectId, ref: 'Card' },
-   }],
+   Cards: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Card' }],
    Private: {
       type: String,
       enum: ["Private", "General"],
@@ -31,15 +29,7 @@ const gamechema = new mongoose.Schema({
       type: String,
       select: false
    },
-   Members: [{
-      Player: { type: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } },
-      Role: { type: mongoose.Schema.Types.ObjectId, ref: 'Card' },
-      Side: {
-         type: String,
-         enum: ['Mafia', 'Citizen', 'Neutral'],
-         default: 'Citizen'
-      }
-   }],
+   Members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'users' }],
    WinnerSide: {
       type: String,
       enum: ['Mafia', 'Citizen', 'Neutral'],

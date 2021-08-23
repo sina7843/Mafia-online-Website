@@ -18,7 +18,6 @@ const storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  console.log(req.user);
   res.render('dashboard', { user: req.user });
 });
 

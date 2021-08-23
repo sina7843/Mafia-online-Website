@@ -4,7 +4,7 @@ let Game = require('../Models/Game')
 
 router.get('/', async (req, res, next) => {
    let game = await Game.find({ Stat: 'Waiting' });
-   res.render('roomlist', { rooms: game, types: ['Classic', 'Nigth'] ,Avatar : req.user.avatar});
+   res.render('roomlist', { rooms: game, types: ['Classic', 'Nigth'], Avatar: req.user.avatar });
 })
 router.post('/create', async (req, res, next) => {
    let newGame = new Game({
@@ -16,12 +16,13 @@ router.post('/create', async (req, res, next) => {
       password: req.body.Private ? req.body.Password : null
    })
    await newGame.save();
-   console.log(req.body);
    res.redirect('/room');
 })
 
-router.get('/:id',(req,res,next)=>{
-   res.render('room')
+router.get('/:id', async (req, res, next) => {
+   let game = await Game.findById(req.params.id).populate("Members");
+   if (game.God + '' === req.user._id + '') res.render('GodRoom', { roomId: req.params.id, user: req.user, game })
+   else res.render('room', { roomId: req.params.id, user: req.user, game })
 })
 
 module.exports = router;
