@@ -6,7 +6,8 @@
   box-sizing: border-box;
   font-family: 'Jura', sans-serif;
 }
-html{
+
+html {
   background-color: black;
 }
 
@@ -319,6 +320,7 @@ body,
 }
 
 #Room .video {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -334,6 +336,28 @@ body,
   border-radius: 50%;
 }
 
+#Room .video>i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 6vw;
+  vertical-align: middle;
+  padding: auto;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+
+  color: white;
+}
+
+#Room .video>.fa-thumbs-up {
+  background-color: green;
+}
+
+#Room .video>.fa-thumbs-down {
+  background-color: red;
+}
 
 
 .hidden {

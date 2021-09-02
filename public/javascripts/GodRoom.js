@@ -1,6 +1,6 @@
 const socket = io('/');
 const myPeer = new Peer(user._id, {
-   host: 'sinakhalegha.ir',
+   host: '/',
    port: '3004',
 });
 
@@ -50,7 +50,11 @@ function addUser(user, stream) {
    imgVideo.setAttribute("src", `/Avatars/${user.avatar}`);
    let spanVideo = document.createElement("span");
    spanVideo.innerText = user.Name;
-   video.appendChild(imgVideo); video.appendChild(spanVideo);
+   let likeSymbol = document.createElement("i");
+   likeSymbol.classList.add("fas","fa-thumbs-up","hidden")
+   let disLikeSymbol = document.createElement("i");
+   disLikeSymbol.classList.add("fas","fa-thumbs-down","hidden")
+   video.appendChild(imgVideo); video.appendChild(spanVideo);video.appendChild(disLikeSymbol);video.appendChild(likeSymbol);
    videoGrid.appendChild(video);
    if (stream) {
       const call = myPeer.call(user._id, stream);
@@ -330,18 +334,43 @@ socket.on("playerVoted", (player, userid, vote) => {
 })
 
 function kill(userId) {
-   socket.emit("kill", userId);
-   members[userId].alive = false;
-   let AliveMafiaNumber = 0
-   let players = [];
-   document.getElementById(`video${userId}`).style.backgroundColor = "#242424";
-   membernum--;
-   for (i in members) {
-      if (members[i].side === "Mafia") players.push(members[i].data.Name);
-      if (members[i].alive && members[i].side === "Mafia") AliveMafiaNumber++
-   }
-   if (AliveMafiaNumber == 0) socket.emit("EndGame", "Citizen", players);
-   else if (AliveMafiaNumber * 2 >= membernum) socket.emit("EndGame", "Mafia", players);
+   Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: `Talk`,
+      denyButtonText: `Kill`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+         Swal.fire({
+            input: 'textarea',
+            inputLabel: 'Message',
+            inputPlaceholder: 'Type your message here...',
+            inputAttributes: {
+              'aria-label': 'Type your message here'
+            },
+            showCancelButton: true
+          }).then(text=>{
+            socket.emit("pvTalk" , text , userId)
+          })
+      } else if (result.isDenied) {
+         socket.emit("kill", userId);
+         members[userId].alive = false;
+         let AliveMafiaNumber = 0
+         let players = [];
+         document.getElementById(`video${userId}`).style.backgroundColor = "#242424";
+         membernum--;
+         for (i in members) {
+            if (members[i].side === "Mafia") players.push(members[i].data.Name);
+            if (members[i].alive && members[i].side === "Mafia") AliveMafiaNumber++
+         }
+         if (AliveMafiaNumber == 0) socket.emit("EndGame", "Citizen", players);
+         else if (AliveMafiaNumber * 2 >= membernum) socket.emit("EndGame", "Mafia", players);
+      }
+    })
+   
+   
 }
 
 socket.on("Target", (first, target) => {
@@ -355,3 +384,13 @@ function timeChange() {
    li.innerText = `Now is ${time} time`
    eventSection.append(li);
 }
+
+socket.on("pLike", userID=>{
+   document.getElementById(`video${userID}`).getElementsByClassName("fa-thumbs-up")[0].classList.remove("hidden");
+   setTimeout(function(){ document.getElementById(`video${userID}`).getElementsByClassName("fa-thumbs-up")[0].classList.add("hidden");}, 3000);
+})
+
+socket.on("pdisLike", userID=>{
+   document.getElementById(`video${userID}`).getElementsByClassName("fa-thumbs-down")[0].classList.remove("hidden");
+   setTimeout(function(){ document.getElementById(`video${userID}`).getElementsByClassName("fa-thumbs-down")[0].classList.add("hidden");}, 3000);
+})

@@ -1,6 +1,6 @@
 const socket = io('/')
 const myPeer = new Peer(user._id, {
-   host: 'sinakhalegha.ir',
+   host: '/',
    port: '3004',
 });
 
@@ -15,6 +15,9 @@ let memberlist = document.getElementById("memberlist");
 let nextbtn = document.getElementById('CR');
 let videoGrid = document.getElementById('videoGrid');
 let myAudio = document.createElement('audio');
+let likebtn = document.getElementById('like');
+let dislikebtn = document.getElementById('dislike');
+
 let card = "";
 myAudio.muted = true;
 let members = {};
@@ -46,7 +49,11 @@ function addUser(user, stream) {
    imgVideo.setAttribute("src", `/Avatars/${user.avatar}`);
    let spanVideo = document.createElement("span");
    spanVideo.innerText = user.Name;
-   video.appendChild(imgVideo); video.appendChild(spanVideo);
+   let likeSymbol = document.createElement("i");
+   likeSymbol.classList.add("fas","fa-thumbs-up","hidden")
+   let disLikeSymbol = document.createElement("i");
+   disLikeSymbol.classList.add("fas","fa-thumbs-down","hidden")
+   video.appendChild(imgVideo); video.appendChild(spanVideo);video.appendChild(disLikeSymbol);video.appendChild(likeSymbol);
    videoGrid.appendChild(video);
    if (stream) {
       const call = myPeer.call(user._id, stream);
@@ -142,6 +149,29 @@ let newmsg = (user, msg, self) => {
 }
 
 //player part
+
+likebtn.onclick = ()=>{
+   socket.emit("like" , user._id);
+   likebtn.disabled = true;
+   dislikebtn.disabled = true;
+   setTimeout(function(){dislikebtn.disabled = false;likebtn.disabled =false;}, 3000);
+}
+socket.on("pLike", userID=>{
+   document.getElementById(`video${userID}`).getElementsByClassName("fa-thumbs-up")[0].classList.remove("hidden");
+   setTimeout(function(){ document.getElementById(`video${userID}`).getElementsByClassName("fa-thumbs-up")[0].classList.add("hidden");}, 3000);
+})
+
+dislikebtn.onclick = ()=>{
+   socket.emit("dislike" , user._id);
+   likebtn.disabled = true;
+   dislikebtn.disabled = true;
+   setTimeout(function(){dislikebtn.disabled = false;likebtn.disabled =false;}, 3000);
+}
+socket.on("pdisLike", userID=>{
+   document.getElementById(`video${userID}`).getElementsByClassName("fa-thumbs-down")[0].classList.remove("hidden");
+   setTimeout(function(){ document.getElementById(`video${userID}`).getElementsByClassName("fa-thumbs-down")[0].classList.add("hidden");}, 3000);
+})
+
 socket.on('role', (role, card) => {
    WaitingRoomSection.classList.add("hidden");
    RoomSection.classList.remove("hidden");
@@ -261,3 +291,10 @@ function timeChange() {
    li.innerText = `Now is ${time} time`
    eventList.append(li);
 }
+
+socket.on("GodTalk" , msg=>{
+   console.log(msg);
+   let li = document.createElement("li");
+   li.innerText = `God: ${msg.value}`
+   eventList.append(li);
+})

@@ -107,6 +107,15 @@ io.on('connection', socket => {
     socket.on('EndGame', (WinnerSide, player) => {
       socket.to("room:" + roomId).emit('End', WinnerSide, player);
     })
+    socket.on("pvTalk",(msg,id)=>{
+      socket.to("usr:"+id).emit("GodTalk" , msg);
+    } )
+    socket.on("like" , userId=>{
+      io.in("room:" + roomId).emit('pLike', userId)
+    })
+    socket.on("dislike" , userId=>{
+      io.in("room:" + roomId).emit('pdisLike', userId)
+    })
   });
 });
 
