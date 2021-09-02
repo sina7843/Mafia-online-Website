@@ -10,6 +10,7 @@
    <link rel="stylesheet" href="/stylesheets/room.css">
    <script src="/socket.io/socket.io.js"></script>
    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script>
       let roomId = "<%= roomId %>"
       let user = <%- JSON.stringify(user) %>;
@@ -40,9 +41,7 @@
    <section id="Room" class="hidden">
       <div class="left">
          <h1>God's Diary</h1>
-         <ul>
-            <li>lorem</li>
-            <li>lorem</li>   
+         <ul id="Event">  
          </ul>
          <div class="control">
             <button id="CR">Chalenge Request</button>
@@ -50,32 +49,7 @@
             <button id="dislike"><i class="fas fa-thumbs-down"></i></button>
          </div>
       </div>
-      <div class="videoGrid">
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
-         <div class="video"></div>
+   <div class="videoGrid" id="videoGrid">
 
       </div>
    </section>

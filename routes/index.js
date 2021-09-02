@@ -3,6 +3,7 @@ var router = express.Router();
 var md5 = require('md5');
 var passport = require('passport');
 const User = require('../models/User');
+var url = require('url');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -19,15 +20,15 @@ router.post('/SignUp', async (req, res, next) => {
       password: md5(req.body.Password)
     });
     await newuser.save();
-    res.redirect('/Profile');
+    res.redirect('/login');
   }
   catch (err) {
-    res.redirect('/login');
+    res.redirect(`/login`);
   }
 })
 
 router.get('/Login', function (req, res, next) {
-  res.render('Login', { title: 'Express' });
+  res.render('Login', { title: 'Express'  });
 });
 
 

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-let Game = require('../Models/Game')
+let Game = require('../models/Game')
 
 router.get('/', async (req, res, next) => {
    let game = await Game.find({ Stat: 'Waiting' });
@@ -16,7 +16,7 @@ router.post('/create', async (req, res, next) => {
       password: req.body.Private ? req.body.Password : null
    })
    await newGame.save();
-   res.redirect('/room');
+   res.redirect(`/room/${newGame._id}`);
 })
 
 router.get('/:id', async (req, res, next) => {
